@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# Diagnose Test Probability Calculator 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Great question! The probability of disease given a positive test is not necessarily 100% because diagnostic tests are not perfect. They have certain characteristics, such as sensitivity and specificity, which affect their accuracy.
 
-## Available Scripts
+Here's a breakdown of the key concepts:
 
-In the project directory, you can run:
+Prevalence (P(Disease)): The proportion of the population that has the disease.
+Sensitivity (P(Test+|Disease+)): The probability that the test is positive given that the person has the disease.
+Specificity (P(Test-|Disease-)): The probability that the test is negative given that the person does not have the disease.
+When you get a positive test result, you want to know the probability that you actually have the disease. This is known as the positive predictive value (PPV), or P(Disease|Test+). It takes into account not only the sensitivity and specificity of the test but also the prevalence of the disease in the population.
 
-### `npm start`
+The formula used in your code to calculate this is derived from Bayes' Theorem:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[ P(Disease|Test+) = \frac{P(Test+|Disease) \cdot P(Disease)}{P(Test+|Disease) \cdot P(Disease) + P(Test+|No Disease) \cdot P(No Disease)} ]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This formula considers both true positives and false positives to give a more accurate probability.
 
-### `npm test`
+Similarly, the probability of not having the disease given a negative test result (negative predictive value, NPV) is calculated using:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[ P(Disease|Test-) = \frac{P(Test-|No Disease) \cdot P(No Disease)}{P(Test-|No Disease) \cdot P(No Disease) + P(Test-|Disease) \cdot P(Disease)} ]
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In summary, the probability of having the disease given a positive test result is not 100% because the test can produce false positives. The calculation accounts for the test's sensitivity, specificity, and the prevalence of the disease to provide a more accurate probability.
+# Diagnostic-Test-Probability-Calculator
